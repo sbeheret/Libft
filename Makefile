@@ -6,13 +6,13 @@
 #    By: sbeheret <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/12/14 16:15:36 by sbeheret          #+#    #+#              #
-#    Updated: 2017/12/19 17:30:43 by sbeheret         ###   ########.fr        #
+#    Updated: 2017/12/19 18:07:09 by sbeheret         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 .PHONY: all, clean, fclean, re
 
-SRC_PATH = .
+SRC_PATH = srcs
 
 SRC_NAME = ft_atoi.c ft_isalpha.c ft_isprint.c ft_isspace.c\
 		   ft_lstadd_end.c ft_lstiter.c ft_memalloc.c ft_memcmp.c ft_memmove.c ft_putchar_fd.c ft_putnbr.c \
