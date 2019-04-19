@@ -3,15 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sbeheret <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: sbeheret <sbeheret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/09 10:17:49 by sbeheret          #+#    #+#             */
-/*   Updated: 2017/11/16 12:11:14 by sbeheret         ###   ########.fr       */
+/*   Updated: 2019/04/19 15:29:32 by sbeheret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+/*
+**	We iterate through haystack
+**	If haystack's character equals needle's first character
+**	We iterate through both, while they're equal.
+**	If we reached the end of needle, it means we found it in haystack.
+*/
 char	*ft_strstr(const char *haystack, const char *needle)
 {
 	int i;

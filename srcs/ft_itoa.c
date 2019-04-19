@@ -3,56 +3,66 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sbeheret <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: sbeheret <sbeheret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/13 16:14:38 by sbeheret          #+#    #+#             */
-/*   Updated: 2017/11/15 12:58:57 by sbeheret         ###   ########.fr       */
+/*   Updated: 2019/04/19 13:14:15 by sbeheret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdlib.h>
 
-static int	length(int n)
+/*
+**	This function calculates the necessary size of destination string
+**	to allocate enough memory to hold the number
+*/
+static int	length(int nb)
 {
 	int	res;
 
 	res = 0;
-	if (n < 0)
+	if (nb < 0)
 		res++;
-	while (n <= -10 || n >= 10)
+	while (nb <= -10 || nb >= 10)
 	{
-		n = n / 10;
+		nb = nb / 10;
 		res++;
 	}
 	return (res);
 }
 
-char		*ft_itoa(int n)
+/*
+**	Allocate the string. Exception if nb == 0.
+**	Cast nb to long type, to avoid errors with INT_MIN when multiplying by -1.
+** 	Make the converstion of number to string.
+**	Return the string.
+*/
+char		*ft_itoa(int nb)
 {
-	long	len;
-	int		i;
+	long	number;
+	int 	len;
 	char	*str;
 
-	len = length(n);
+	len = length(nb);
 	if (!(str = (char*)malloc(len + 2)))
 		return (NULL);
-	if (n == 0)
+	if (nb == 0)
 	{
 		str[0] = '0';
 		str[1] = '\0';
 		return (str);
 	}
-	i = len;
-	str[len + 1] = '\0';
-	len = n;
-	while (len > 0 || len < 0)
-	{
-		str[i] = ABS(len) % 10 + 48;
-		len = len / 10;
-		i--;
-	}
-	if (n < 0)
+	number = nb < 0 ? -(long)nb : (long)nb;
+	if (nb < 0) {
 		str[0] = '-';
+	}
+	str[len + 1] = '\0';
+	while (number != 0)
+	{
+		str[len] = number % 10 + '0';
+		number = number / 10;
+		len--;
+	}
 	return (str);
 }

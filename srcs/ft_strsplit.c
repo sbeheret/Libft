@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strsplit.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sbeheret <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: sbeheret <sbeheret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/13 17:43:23 by sbeheret          #+#    #+#             */
-/*   Updated: 2017/11/17 12:06:09 by sbeheret         ###   ########.fr       */
+/*   Updated: 2019/04/19 15:24:00 by sbeheret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ static int	count_words(char const *s, char c)
 	nb = 0;
 	i = 0;
 	if (s == NULL)
-		return (-12);
+		return (-1);
 	while (s[i] != '\0')
 	{
 		while (s[i] == c)
@@ -34,31 +34,43 @@ static int	count_words(char const *s, char c)
 	return (nb);
 }
 
+/*
+**	(i) index of s
+**	(k) index of tab
+**	(start) stores the beginning of each new word
+**
+**	Here's how the while loop works:
+**	Skip all occurences to c
+**	Save index in start
+**	Get to the end of the word
+**	Save an allocated string, of the word, into tab
+**	repeat until end of string
+*/
 char		**ft_strsplit(char const *s, char c)
 {
-	char	**tab;
 	int		i;
-	int		nb;
-	int		j;
+	int		k;
 	int		start;
+	int		nb_words;
+	char	**tab;
 
-	start = 0;
-	j = 0;
-	i = 0;
-	nb = count_words(s, c);
-	if (nb == -12 || !(tab = (char**)malloc(sizeof(char*) * nb + 1)))
+	nb_words = count_words(s, c);
+	if (nb_words == -1 || !(tab = (char**)malloc(sizeof(char*) * nb_words + 1)))
 		return (NULL);
-	tab[nb] = NULL;
-	while (i < nb)
+	tab[nb_words] = NULL;
+	i = 0;
+	k = 0;
+	start = 0;
+	while (k < nb_words)
 	{
-		while (s[j] == c)
-			j++;
-		start = j;
-		while (s[j] != c && s[j] != '\0')
-			j++;
+		while (s[i] == c)
+			i++;
+		start = i;
+		while (s[i] != c && s[i] != '\0')
+			i++;
 		if (s[start] != '\0')
-			tab[i] = ft_strsub(s, start, j - start);
-		i++;
+			tab[k] = ft_strsub(s, start, i - start);
+		k++;
 	}
 	return (tab);
 }

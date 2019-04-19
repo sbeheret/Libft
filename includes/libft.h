@@ -6,7 +6,7 @@
 /*   By: sbeheret <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/08 16:16:29 by sbeheret          #+#    #+#             */
-/*   Updated: 2018/01/12 18:01:50 by sbeheret         ###   ########.fr       */
+/*   Updated: 2019/04/19 15:49:33 by sbeheret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,16 +17,8 @@
 # include <stdlib.h>
 # include <unistd.h>
 
-# define ABS(x)	(x >= 0 ? x : -x)
 # define IMIN	-2147483648
 # define IMAX	2147483647
-
-typedef struct		s_list
-{
-	void			*content;
-	size_t			content_size;
-	struct s_list	*next;
-}					t_list;
 
 void				ft_putchar(char c);
 void				ft_putstr(char const *s);
@@ -68,8 +60,6 @@ void				ft_striter(char *s, void (*f)(char *));
 void				ft_striteri(char *s, void (*f)(unsigned int, char *));
 char				*ft_strmap(char const *s, char (*f)(char));
 char				*ft_strmapi(char const *s, char (*f)(unsigned int, char));
-int					ft_strequ(char const *s1, char const *s2);
-int					ft_strnequ(char const *s1, char const *s2, size_t n);
 char				*ft_strsub(char const *s, unsigned int start, size_t len);
 char				*ft_strjoin(char const *s1, char const *s2);
 char				*ft_strnjoin_free(char **s1, char *s2, int len, int len2);
@@ -82,12 +72,6 @@ void				ft_putnbr_fd(int n, int fd);
 int					ft_atoi(const char *str);
 char				*ft_itoa(int n);
 char				**ft_strsplit(char const *s, char c);
-t_list				*ft_lstnew(void const *content, size_t content_size);
-void				ft_lstdelone(t_list **alst, void (*del)(void *, size_t));
-void				ft_lstdel(t_list **alst, void (*del)(void *, size_t));
-void				ft_lstadd(t_list **alst, t_list *new);
-void				ft_lstiter(t_list *lst, void (*f)(t_list *elem));
-t_list				*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
-void				ft_lstadd_end(t_list **alst, t_list *new);
 int					ft_isspace(int c);
+
 #endif

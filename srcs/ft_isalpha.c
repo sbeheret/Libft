@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isalpha.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sbeheret <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: sbeheret <sbeheret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/09 12:41:38 by sbeheret          #+#    #+#             */
-/*   Updated: 2017/11/15 18:58:59 by sbeheret         ###   ########.fr       */
+/*   Updated: 2019/04/19 11:44:53 by sbeheret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 int	ft_isalpha(int c)
 {
-	if (c <= 122 && c >= 97)
+	if (c >= 'a' && c <= 'z')
 		return (1);
-	else if (c <= 90 && c >= 65)
+	else if (c >= 'A' && c <= 'Z')
 		return (1);
 	else
 		return (0);

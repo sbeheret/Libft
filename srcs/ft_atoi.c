@@ -3,16 +3,24 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sbeheret <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: sbeheret <sbeheret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/13 11:45:15 by sbeheret          #+#    #+#             */
-/*   Updated: 2017/12/19 16:29:04 by sbeheret         ###   ########.fr       */
+/*   Updated: 2019/04/19 16:27:42 by sbeheret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	check(const char *str, int *neg)
+// Everything done in this file is done to mimic the behavior of atoi().
+
+/*
+**	With this function we skip all the whitespaces,
+**	Get the sign (positive or negative),
+**	Skip possible precedings zeros,
+**	and Check if there is indeed a number or not
+*/
+static int	check(const char *str, int *negative)
 {
 	int	i;
 
@@ -22,7 +30,7 @@ static int	check(const char *str, int *neg)
 		i++;
 	if (str[i] == '-')
 	{
-		*neg = -1;
+		*negative = -1;
 		i++;
 	}
 	else if (str[i] == '+')
@@ -35,26 +43,29 @@ static int	check(const char *str, int *neg)
 		return (-1);
 }
 
+/*
+**	if we have the digit '9' which has the ascii value of 57,
+**	Substract '0' (== 48) to get its integer value.
+** '9' - '0' = 57 - 48 = 9
+*/
 int			ft_atoi(const char *str)
 {
-	unsigned long	feuille;
-	int				res;
-	int				i;
-	int				neg;
+	unsigned long	number;
+	int						i;
+	int						negative;
 
-	res = 0;
-	feuille = 0;
-	neg = 1;
-	if ((i = check(str, &neg)) < 0)
+	number = 0;
+	negative = 1;
+	if ((i = check(str, &negative)) < 0)
 		return (0);
-	while (str[i] <= '9' && str[i] >= '0' && feuille < 9223372036854775807)
+	while (str[i] <= '9' && str[i] >= '0' && number < 9223372036854775807)
 	{
-		feuille = feuille * 10 + str[i] - 48;
+		number = number * 10 + str[i] - '0';
 		i++;
 	}
-	if (feuille >= 9223372036854775807 && neg > 0)
+	if (number >= 9223372036854775807 && negative > 0)
 		return (-1);
-	else if (feuille > 9223372036854775807 && neg < 0)
+	else if (number > 9223372036854775807 && negative < 0)
 		return (0);
-	return ((int)(neg * feuille));
+	return ((int)(negative * number));
 }

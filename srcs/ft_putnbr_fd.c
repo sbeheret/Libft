@@ -3,15 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sbeheret <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: sbeheret <sbeheret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/11 19:53:22 by sbeheret          #+#    #+#             */
-/*   Updated: 2017/11/13 10:31:14 by sbeheret         ###   ########.fr       */
+/*   Updated: 2019/04/19 14:16:15 by sbeheret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+/*
+**	The first 3 lines are here to make it safe to mutiply by -1
+**	in case of INT_MIN
+*/
 void	ft_putnbr_fd(int n, int fd)
 {
 	int	mod;
@@ -26,5 +30,5 @@ void	ft_putnbr_fd(int n, int fd)
 	}
 	if (n >= 10)
 		ft_putnbr_fd(n / 10, fd);
-	ft_putchar_fd(ABS(mod) + 48, fd);
+	ft_putchar_fd((mod < 0 ? -mod : mod) + 48, fd);
 }

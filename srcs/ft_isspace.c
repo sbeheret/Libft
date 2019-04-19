@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isspace.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sbeheret <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: sbeheret <sbeheret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/17 10:31:32 by sbeheret          #+#    #+#             */
-/*   Updated: 2017/11/24 15:55:37 by sbeheret         ###   ########.fr       */
+/*   Updated: 2019/04/19 11:49:09 by sbeheret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,16 @@
 
 int	ft_isspace(int c)
 {
-	if (c == '\v')
-		return (1);
-	else if (c == '\t')
-		return (1);
-	else if (c == '\r')
-		return (1);
-	else if (c == '\f')
-		return (1);
-	else if (c == ' ')
-		return (1);
-	else if (c == '\n')
-		return (1);
-	else
-		return (0);
+	switch (c) {
+		case '\v':
+		case '\t':
+		case '\r':
+		case '\f':
+		case ' ':
+		case '\n':
+			return (1);
+			break ;
+		default:
+			return (0);
+	}
 }

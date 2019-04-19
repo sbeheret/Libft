@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sbeheret <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: sbeheret <sbeheret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/10 10:24:33 by sbeheret          #+#    #+#             */
-/*   Updated: 2017/11/15 11:03:25 by sbeheret         ###   ########.fr       */
+/*   Updated: 2019/04/19 13:54:29 by sbeheret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,28 +15,28 @@
 
 void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	size_t		i;
-	char		*ds;
-	const char	*sc;
-	char		*md;
+	size_t			i;
+	char				*copy;
+	const char	*source;
+	char				*tmp;
 
-	ds = dst;
-	sc = src;
-	i = 0;
-	md = (char*)malloc(sizeof(char) * len + 1);
-	if (md == NULL)
+	copy = dst;
+	source = src;
+	tmp = (char*)malloc(sizeof(char) * len + 1);
+	if (tmp == NULL)
 		return (dst);
+	i = 0;
 	while (i < len)
 	{
-		md[i] = sc[i];
+		tmp[i] = source[i];
 		i++;
 	}
 	i = 0;
 	while (i < len)
 	{
-		ds[i] = md[i];
+		copy[i] = tmp[i];
 		i++;
 	}
-	free(md);
+	free(tmp);
 	return (dst);
 }

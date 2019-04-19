@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sbeheret <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: sbeheret <sbeheret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/08 18:56:46 by sbeheret          #+#    #+#             */
-/*   Updated: 2017/11/16 16:41:28 by sbeheret         ###   ########.fr       */
+/*   Updated: 2019/04/19 14:34:15 by sbeheret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,23 +16,21 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {
 	int		ret;
 	int		i;
-	size_t	j;
-	int		d;
+	size_t	len;
 	int		max;
 
 	i = 0;
-	j = ft_strlen(dst);
-	d = j;
-	if (size <= j)
+	len = ft_strlen(dst);
+	if (size <= len)
 		return (size + ft_strlen(src));
-	max = size - d - 1;
-	ret = j + ft_strlen(src);
+	max = size - len - 1;
+	ret = len + ft_strlen(src);
 	while (i < max && src[i] != '\0')
 	{
-		dst[j] = src[i];
-		j++;
+		dst[len] = src[i];
+		len++;
 		i++;
 	}
-	dst[j] = '\0';
+	dst[len] = '\0';
 	return (ret);
 }

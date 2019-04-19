@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memccpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sbeheret <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: sbeheret <sbeheret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/10 10:48:12 by sbeheret          #+#    #+#             */
-/*   Updated: 2017/11/17 12:09:50 by sbeheret         ###   ########.fr       */
+/*   Updated: 2019/04/19 13:21:29 by sbeheret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,20 +15,19 @@
 void	*ft_memccpy(void *dst, const void *src, int c, size_t n)
 {
 	size_t				i;
-	unsigned char		*str;
-	const unsigned char	*str2;
+	unsigned char		*copy;
+	const unsigned char	*source;
 
 	i = 0;
 	c = (unsigned char)c;
-	str = dst;
-	str2 = src;
-	while (i < n && str2[i] != c)
+	copy = dst;
+	source = src;
+	while (i < n && source[i] != c)
 	{
-		str[i] = str2[i];
+		copy[i] = source[i];
 		i++;
 	}
 	if (i == n)
 		return (NULL);
-	str[i] = c;
-	return (dst + i + 1);
+	copy[i] = c;
 }
