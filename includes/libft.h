@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sbeheret <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: sbeheret <sbeheret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/08 16:16:29 by sbeheret          #+#    #+#             */
-/*   Updated: 2019/04/19 15:49:33 by sbeheret         ###   ########.fr       */
+/*   Updated: 2019/04/20 14:50:32 by sbeheret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ char				*ft_strmap(char const *s, char (*f)(char));
 char				*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 char				*ft_strsub(char const *s, unsigned int start, size_t len);
 char				*ft_strjoin(char const *s1, char const *s2);
-char				*ft_strnjoin_free(char **s1, char *s2, int len, int len2);
+char				*ft_strnjoin(char *s1, char *s2, int len, int len2);
 char				*ft_strtrim(char const *s);
 void				ft_putchar_fd(char c, int fd);
 void				ft_putstr_fd(const char *s, int fd);
