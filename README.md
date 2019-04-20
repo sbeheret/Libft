@@ -142,7 +142,7 @@ Allocate and returns a “fresh” string ending with ’\0’ representing the 
 Negative numbers must be supported. If the allocation fails,
 the function returns NULL.
 
-### Output
+## Output
 
 **ft_putchar**
 ```C
