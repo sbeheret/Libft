@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: sbeheret <marvin@42.fr>                    +#+  +:+       +#+         #
+#    By: sbeheret <sbeheret@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/12/14 16:15:36 by sbeheret          #+#    #+#              #
-#    Updated: 2019/04/19 15:52:02 by sbeheret         ###   ########.fr        #
+#    Updated: 2019/04/20 15:36:53 by sbeheret         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@
 
 SRC_PATH = srcs
 
-SRC_NAME = ft_atoi.c ft_isalpha.c ft_isprint.c ft_isspace.c ft_strndup.c ft_strnjoin_free.c\
+SRC_NAME = ft_atoi.c ft_isalpha.c ft_isprint.c ft_isspace.c ft_strndup.c ft_strnjoin.c\
 		   ft_memalloc.c ft_memcmp.c ft_memmove.c ft_putchar_fd.c ft_putnbr.c \
 		   ft_putstr_fd.c ft_strclr.c ft_strdel.c ft_striter.c ft_strlcat.c ft_strmapi.c \
 		   ft_strncpy.c ft_strnstr.c ft_strstr.c ft_tolower.c ft_bzero.c ft_isascii.c ft_itoa.c \
