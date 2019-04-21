@@ -116,6 +116,12 @@ char * ft_strjoin(char const *s1, char const *s2);
 Allocates and returns a “fresh” string ending with ’\0’, result of the concatenation of s1 and s2. If
 the allocation fails the function returns NULL.
 
+**ft_strnjoin**
+```C
+char * ft_strnjoin(char *s1, char *s2, int len1, int len2);
+```
+Allocates and returns a “fresh” string ending with ’\0’, result of the concatenation of len1 bytes of s1 and len2 bytes of s2. If the allocation fails the function returns NULL.
+
 **ft_strtrim**
 ```C
 char * ft_strtrim(char const *s);
