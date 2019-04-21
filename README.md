@@ -6,6 +6,11 @@ First school project, made in december 2017
 - Malloc
 - Free
 
+**Usage**
+
+Call the makefile with 'make' and it will compile every functions into a library file named "libft.a".
+
+
 Non-Explained functions have their own official man page.
 
 ## Memory
