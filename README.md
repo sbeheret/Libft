@@ -6,6 +6,11 @@ First school project, made in december 2017
 - Malloc
 - Free
 
+**Usage**
+
+Call the makefile with 'make' and it will compile every functions into a library file named "libft.a".
+
+
 Non-Explained functions have their own official man page.
 
 ## Memory
@@ -115,6 +120,12 @@ char * ft_strjoin(char const *s1, char const *s2);
 ```
 Allocates and returns a “fresh” string ending with ’\0’, result of the concatenation of s1 and s2. If
 the allocation fails the function returns NULL.
+
+**ft_strnjoin**
+```C
+char * ft_strnjoin(char *s1, char *s2, int len1, int len2);
+```
+Allocates and returns a “fresh” string ending with ’\0’, result of the concatenation of len1 bytes of s1 and len2 bytes of s2. If the allocation fails the function returns NULL.
 
 **ft_strtrim**
 ```C
